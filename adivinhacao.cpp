@@ -13,4 +13,20 @@ int main(){
     int numerosecreto;
     numerosecreto = 42;
 
+    //Imprimindo Somente o Numero Secreto
+    printf("%d",42);
+
+    //No Meio da Frase
+    printf("O Numero Secreto %d e secreto");
+
+    printf("O Numero Secreto he");
+
+    int chute;
+
+    printf("Qual e o seu chute");
+    scanf("%d", &chute);
+
+    printf("Voce chutou o numero %d", chute);
+    
+
 }
