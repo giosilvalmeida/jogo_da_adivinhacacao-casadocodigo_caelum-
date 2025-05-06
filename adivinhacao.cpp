@@ -27,6 +27,21 @@ int main(){
     scanf("%d", &chute);
 
     printf("Voce chutou o numero %d", chute);
+
+    
+    if (chute == numerosecreto){
+        printf("Parabens! voce acertou! \n");
+    } else {
+        if (chute > numerosecreto){
+            printf ("Seu chute foi maior que o numero secreto\n");
+        }
+        if (chute < numerosecreto){
+            printf ("Seu chute foi menor que o numero secreto\n");
+        }
+        
+    }
+    
+}
     
 
 }
