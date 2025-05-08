@@ -10,6 +10,9 @@ int main(){
     printf("Bem Vindo ao Jogo da Adivinhacao");
     printf("********************************");
 
+    // Velho Print com variaveis de teste
+
+    /*
     int numerosecreto;
     numerosecreto = 42;
 
@@ -20,6 +23,7 @@ int main(){
     printf("O Numero Secreto %d e secreto");
 
     printf("O Numero Secreto he");
+    */
 
     int chute;
 
@@ -28,8 +32,23 @@ int main(){
 
     printf("Voce chutou o numero %d", chute);
 
-    
-    if (chute == numerosecreto){
+    int acertou = chute == numerosecreto;
+
+    if (acertou) {
+        printf ("Parabens voce acertou\n");
+    } else{
+        int maior = chute > numerosecreto;
+        if (maior){
+            printf("Seu numero foi maior do que o numero secreto\n");
+        }else{
+            printf("Seu numero foi menor do que o numero secreto\n");
+        }
+        
+    }
+
+    // Velho if tendo a Logica anterior uma nova Logica adicionada
+
+    /* if (chute == numerosecreto){
         printf("Parabens! voce acertou! \n");
     } else {
         if (chute > numerosecreto){
@@ -39,9 +58,8 @@ int main(){
             printf ("Seu chute foi menor que o numero secreto\n");
         }
         
-    }
-    
-}
+    } */
+
     
 
 }
