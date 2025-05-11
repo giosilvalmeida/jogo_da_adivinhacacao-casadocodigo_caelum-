@@ -5,61 +5,53 @@
 
 int main(){
 
-    
+    // imprime o cabecalho do nosso jogo
     printf("********************************");
     printf("Bem Vindo ao Jogo da Adivinhacao");
     printf("********************************");
 
-    // Velho Print com variaveis de teste
-
-    /*
-    int numerosecreto;
-    numerosecreto = 42;
-
-    //Imprimindo Somente o Numero Secreto
-    printf("%d",42);
-
-    //No Meio da Frase
-    printf("O Numero Secreto %d e secreto");
-
-    printf("O Numero Secreto he");
-    */
+    int numerosecreto = 42;
 
     int chute;
+    int tentativas = 1;
 
-    printf("Qual e o seu chute");
-    scanf("%d", &chute);
+    while (1){
 
-    printf("Voce chutou o numero %d", chute);
+        printf("Tentativa %d\n", tentativas);
+        printf("Qual e o seu chute");
 
-    int acertou = chute == numerosecreto;
+        scanf("%d", &chute);
+        printf("Seu chute foi %d\n", chute);
 
-    if (acertou) {
-        printf ("Parabens voce acertou\n");
-    } else{
+        if(chute < 0){
+
+            printf("Voce nao pode chutar numeros negativos");
+            continue;
+        }
+
+        int acertou = (chute == numerosecreto);
         int maior = chute > numerosecreto;
-        if (maior){
-            printf("Seu numero foi maior do que o numero secreto\n");
-        }else{
-            printf("Seu numero foi menor do que o numero secreto\n");
+
+        if (acertou){
+            printf("Parabens! voce acertou\n");
+            printf("Jogue de novo, voce e bom um jogador\n");
+
+            break;
         }
         
+        else if (maior){
+            printf("Seu Chute foi maior que o numero secreto\n");
+        }
+
+        else{
+            printf("Seu chute foi menor que o numero secreto\n");
+        }
+        
+        tentativas++;
+
     }
-
-    // Velho if tendo a Logica anterior uma nova Logica adicionada
-
-    /* if (chute == numerosecreto){
-        printf("Parabens! voce acertou! \n");
-    } else {
-        if (chute > numerosecreto){
-            printf ("Seu chute foi maior que o numero secreto\n");
-        }
-        if (chute < numerosecreto){
-            printf ("Seu chute foi menor que o numero secreto\n");
-        }
-        
-    } */
-
     
+    printf("Fim do Jogo \n");
+    printf("Voce Acertou em %d tentativas\n", tentativas);
 
 }
