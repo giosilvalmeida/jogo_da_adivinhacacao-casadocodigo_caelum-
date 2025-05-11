@@ -2,6 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <time.h>
+
+#define NUMERO_DE_TENTATIVAS 3
 
 int main(){
 
@@ -10,33 +13,34 @@ int main(){
     printf("Bem Vindo ao Jogo da Adivinhacao");
     printf("********************************");
 
-    int numerosecreto = 42;
-
     int chute;
+    int acertou = 0;
     int tentativas = 1;
+    double pontos = 1000;
 
-    while (1){
+    srand(time(0));
+    int numerosecreto = rand() % 100;
 
-        printf("Tentativa %d\n", tentativas);
-        printf("Qual e o seu chute");
+    while (!acertou){
 
+        printf("Qual  e o seu %d. chute \n", tentativas);
         scanf("%d", &chute);
-        printf("Seu chute foi %d\n", chute);
 
         if(chute < 0){
 
             printf("Voce nao pode chutar numeros negativos");
             continue;
         }
+        
+        printf("Seu %d. chute foi %d\n", tentativas, chute);
 
-        int acertou = (chute == numerosecreto);
+        acertou = chute == numerosecreto;
         int maior = chute > numerosecreto;
 
         if (acertou){
-            printf("Parabens! voce acertou\n");
-            printf("Jogue de novo, voce e bom um jogador\n");
 
-            break;
+            printf("Parabens! voce acertou\n");
+        
         }
         
         else if (maior){
@@ -49,9 +53,12 @@ int main(){
         
         tentativas++;
 
+        double pontosperdidos = abs(chute - numerosecreto) / 2.0;
+        pontos = pontos - pontosperdidos;
+
     }
     
-    printf("Fim do Jogo \n");
-    printf("Voce Acertou em %d tentativas\n", tentativas);
+    printf("Voce fex %.2f pontos\n", pontos);
+    printf("Obrigado por jogar!\n");
 
 }
